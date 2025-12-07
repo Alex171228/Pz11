@@ -29,6 +29,21 @@
 - обновление заметки (PATCH),
 - удаление заметки (DELETE).
 После создания API его требуется протестировать с помощью Postman, сформировав запросы для всех операций согласно структуре маршрутов.
+
+### Запуск проекта
+1. Склонировать репозиторий и перейти в папку проекта:
+   ```bash
+   git clone https://github.com/Alex171228/Pz10
+   cd pz9
+    ```
+2. Установите зависимости
+   ```bash
+   go mod tidy
+   ```
+3. Запуск приложения
+   ```bash
+   go run ./cmd/server
+   ```
 ### Теоретические положения REST API и CRUD
 
 ### REST API
@@ -374,3 +389,60 @@ func (h *Handler) DeleteNote(w http.ResponseWriter, r *http.Request) {
 3. Формирует HTTP-ответ в формате JSON
 
 ---
+## Примеры работы API
+
+### Проверка работоспособности (Health Check)
+
+<img width="1127" height="697" alt="image" src="https://github.com/user-attachments/assets/c752e76d-a40e-4233-a03a-f11fdf9a44cc" /> 
+
+### Создание заметки (POST)
+
+<img width="551" height="828" alt="image" src="https://github.com/user-attachments/assets/bbbb449f-6310-4068-8f7d-7d26689fdad7" /> 
+
+### Получение списка заметок (GET)
+
+<img width="580" height="859" alt="image" src="https://github.com/user-attachments/assets/03798e94-3cd4-47c1-9908-84033ff58ed3" /> 
+
+### Получение заметки по ID (GET)
+
+<img width="539" height="818" alt="image" src="https://github.com/user-attachments/assets/483657ae-51df-44d5-b1c7-91e7384f2107" /> 
+
+
+### Обновление заметки (PATCH)
+
+<img width="535" height="835" alt="image" src="https://github.com/user-attachments/assets/224f748d-e181-4c80-a643-b27443795fe9" /> 
+
+
+### Удаление заметки (DELETE)
+
+<img width="1117" height="691" alt="image" src="https://github.com/user-attachments/assets/dee46c36-64cc-43a2-9d8d-13fa59f8c978" /> 
+
+### Выводы о проделанной работе
+
+В ходе выполнения работы был разработан полнофункциональный REST API для управления заметками на языке Go. 
+
+### Основные достижения:
+
+1. **Реализованы все CRUD-операции:**
+   - Create (POST) — создание заметки
+   - Read (GET) — получение одной или всех заметок
+   - Update (PATCH) — частичное обновление заметки
+   - Delete (DELETE) — удаление заметки
+
+2. **Применены принципы чистой архитектуры:**
+   - Разделение на слои (core, service, repo, handlers)
+   - Использование интерфейсов для абстракции зависимостей
+   - Dependency Injection для связывания компонентов
+
+3. **Обеспечена потокобезопасность:**
+   - Использование `sync.RWMutex` для конкурентного доступа к данным
+
+4. **Реализована корректная обработка ошибок:**
+   - Валидация входных данных
+   - Возврат соответствующих HTTP-кодов
+   - JSON-формат для сообщений об ошибках
+
+5. **Использованы современные инструменты:**
+   - Маршрутизатор `chi` с поддержкой middleware
+   - Встроенное логирование запросов
+   - Recovery middleware для обработки паник
