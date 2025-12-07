@@ -68,3 +68,7 @@
 | 500 | Internal Server Error | Внутренняя ошибка сервера|
 
 ---
+### 3. Структура созданного проекта 
+
+<img width="303" height="472" alt="image" src="https://github.com/user-attachments/assets/257c4bda-2c8f-47cd-b5cb-64080b4f6a4b" /> 
+
